@@ -44,7 +44,8 @@ This repo serves as our personal archive for competitive programming solutions. 
 - [S.M. Mahbub Uddin Ahmed](https://github.com/hrid0yyy)
 - [Redwan Ahmed](https://github.com/Redwan-Ahmed241)
 - **Email:** 
-
+- sahmed221241@bscse.uiu.ac.bd
+- hridoyahmedddd@gmail.com
 ---
 
 Feel free to fork or use any code here for learning purposes!
