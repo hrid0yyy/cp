@@ -1,0 +1,362 @@
+							C + +
+
+// VECTOR
+// Use case: Dynamic array, fast random access, frequent insert/remove at end.
+vector<int> v = {1,2,3};           // Declare and initialize
+v.push_back(4);                    // Add 4 at end
+v.pop_back();                      // Remove last element
+v.size();                          // Number of elements
+v.empty();                         // True if vector is empty
+v.clear();                         // Remove all elements
+v[0];                              // Access first element
+v.front();                         // Get first element
+v.back();                          // Get last element
+sort(v.begin(), v.end());          // Sort elements in ascending order
+
+// MAP
+// Use case: Key-value pairs, sorted by key, fast search/insert/delete by key.
+map<int, int> m;                   // Declare empty map
+m[1] = 2;                          // Insert/update key 1 with value 2
+m.insert({3,4});                   // Insert key 3 with value 4
+m.erase(1);                        // Remove key 1
+m.size();                          // Number of key-value pairs
+m.empty();                         // True if map is empty
+m.clear();                         // Remove all pairs
+m.find(3);                         // Iterator to key 3 (or end if not found)
+m.count(3);                        // 1 if key 3 exists, else 0
+for(auto& p : m) cout<<p.first<<":"<<p.second<<" "; // Iterate all pairs
+
+// UNORDERED_MAP
+// Use case: Key-value pairs, not sorted, faster average search/insert/delete.
+unordered_map<int, int> um;        // Declare empty unordered_map
+um[1] = 2;                         // Insert/update key 1 with value 2
+um.insert({3,4});                  // Insert key 3 with value 4
+um.erase(1);                       // Remove key 1
+um.size();                         // Number of key-value pairs
+um.empty();                        // True if map is empty
+um.clear();                        // Remove all pairs
+um.find(3);                        // Iterator to key 3 (or end if not found)
+um.count(3);                       // 1 if key 3 exists, else 0
+for(auto& p : um) cout<<p.first<<":"<<p.second<<" "; // Iterate all pairs
+
+// LIST (Doubly Linked List)
+// Use case: Frequent insert/remove at both ends or in middle, no random access.
+list<int> l = {1,2,3};             // Declare and initialize
+l.push_back(4);                    // Add 4 at end
+l.push_front(0);                   // Add 0 at front
+l.pop_back();                      // Remove last element
+l.pop_front();                     // Remove first element
+l.size();                          // Number of elements
+l.empty();                         // True if list is empty
+l.clear();                         // Remove all elements
+l.front();                         // Get first element
+l.back();                          // Get last element
+l.reverse();                       // Reverse the list
+for(int x : l) cout<<x<<" ";       // Iterate all elements
+
+// DEQUE
+// Use case: Fast insert/remove at both ends, random access.
+deque<int> dq = {1,2,3};           // Declare and initialize
+dq.push_back(4);                   // Add 4 at end
+dq.push_front(0);                  // Add 0 at front
+dq.pop_back();                     // Remove last element
+dq.pop_front();                    // Remove first element
+dq.size();                         // Number of elements
+dq.empty();                        // True if deque is empty
+dq.clear();                        // Remove all elements
+dq.front();                        // Get first element
+dq.back();                         // Get last element
+for(int x : dq) cout<<x<<" ";      // Iterate all elements
+
+// STACK
+// Use case: LIFO (last-in, first-out), undo operations, recursion simulation.
+stack<int> s;                      // Declare empty stack
+s.push(1);                         // Push 1 onto stack
+s.pop();                           // Remove top element
+s.top();                           // Access top element
+s.size();                          // Number of elements
+s.empty();                         // True if stack is empty
+
+// QUEUE
+// Use case: FIFO (first-in, first-out), task scheduling, BFS.
+queue<int> q;                      // Declare empty queue
+q.push(1);                         // Add 1 to back
+q.pop();                           // Remove front element
+q.front();                         // Access front element
+q.back();                          // Access back element
+q.size();                          // Number of elements
+q.empty();                         // True if queue is empty
+
+// PRIORITY QUEUE (Max Heap)
+// Use case: Always access largest element, scheduling, greedy algorithms.
+priority_queue<int> pq;            // Declare empty max-heap
+pq.push(3);                        // Add 3
+pq.push(1);                        // Add 1
+pq.top();                          // Access largest element
+pq.pop();                          // Remove largest element
+pq.size();                         // Number of elements
+pq.empty();                        // True if empty
+
+// PRIORITY QUEUE (Min Heap)
+// Use case: Always access smallest element, scheduling, greedy algorithms.
+priority_queue<int, vector<int>, greater<int>> pqmin; // Declare min-heap
+pqmin.push(3);                      // Add 3
+pqmin.push(1);                      // Add 1
+pqmin.top();                        // Access smallest element
+pqmin.pop();                        // Remove smallest element
+pqmin.size();                       // Number of elements
+pqmin.empty();                      // True if empty
+
+// <algorithm> - Useful Algorithms
+sort(v.begin(), v.end());                  // Sort ascending
+sort(v.begin(), v.end(), greater<int>());  // Sort descending
+reverse(v.begin(), v.end());               // Reverse elements
+next_permutation(v.begin(), v.end());      // Next lexicographical permutation
+prev_permutation(v.begin(), v.end());      // Previous lexicographical permutation
+rotate(v.begin(), v.begin()+k, v.end());   // Rotate left by k
+unique(v.begin(), v.end());                // Remove consecutive duplicates
+count(v.begin(), v.end(), x);              // Count occurrences of x
+find(v.begin(), v.end(), x);               // Find x, returns iterator
+binary_search(v.begin(), v.end(), x);      // True if x exists (sorted)
+lower_bound(v.begin(), v.end(), x);        // Iterator to first >= x (sorted)
+upper_bound(v.begin(), v.end(), x);        // Iterator to first > x (sorted)
+max_element(v.begin(), v.end());           // Iterator to max element
+min_element(v.begin(), v.end());           // Iterator to min element
+accumulate(v.begin(), v.end(), 0);         // Sum of elements
+fill(v.begin(), v.end(), x);               // Fill with x
+copy(v.begin(), v.end(), v2.begin());      // Copy v to v2
+swap(a, b);                                // Swap a and b
+
+// <numeric>
+accumulate(v.begin(), v.end(), 0);         // Sum of elements
+iota(v.begin(), v.end(), 0);               // Fill with 0,1,2,...
+
+// <cmath> - Math Functions
+abs(x);                                    // Absolute value
+pow(a, b);                                 // a^b
+sqrt(x);                                   // Square root
+ceil(x);                                   // Ceiling
+floor(x);                                  // Floor
+round(x);                                  // Round to nearest integer
+log(x);                                    // Natural log
+log2(x);                                   // Base-2 log
+log10(x);                                  // Base-10 log
+sin(x), cos(x), tan(x);                    // Trigonometric functions
+
+// <string> - String Functions
+string s = "abc";
+s.size();                                  // Length
+s.empty();                                 // True if empty
+s.clear();                                 // Remove all chars
+s.substr(pos, len);                        // Substring
+s.find("bc");                              // Find substring
+s.replace(pos, len, "xyz");                // Replace substring
+s.erase(pos, len);                         // Erase substring
+s.insert(pos, "xyz");                      // Insert substring
+reverse(s.begin(), s.end());               // Reverse string
+stoi(s);                                   // String to int
+to_string(x);                              // Int to string
+
+// <bitset> - Bit Manipulation
+bitset<8> b("10101010");                   // Declare bitset
+b.count();                                 // Number of set bits
+b.any();                                   // Any bit set?
+b.none();                                  // No bits set?
+b.set();                                   // Set all bits
+b.reset();                                 // Reset all bits
+b.flip();                                  // Flip all bits
+b.to_ulong();                              // Convert to unsigned long
+
+// <utility> - Pair
+pair<int, int> p = {1,2};                  // Declare pair
+p.first;                                   // Access first
+p.second;                                  // Access second
+make_pair(a, b);                           // Create pair
+
+// <tuple> - Tuple
+tuple<int, int, string> t = {1,2,"abc"};   // Declare tuple
+get<0>(t);                                 // Access first element
+get<1>(t);                                 // Access second element
+
+// <set> - Set
+set<int> st;                               // Declare set
+st.insert(1);                              // Insert
+st.erase(1);                               // Remove
+st.count(1);                               // Exists?
+st.find(1);                                // Iterator to 1
+st.size();                                 // Number of elements
+st.empty();                                // True if empty
+st.clear();                                // Remove all
+st.lower_bound(x);                         // Iterator to first >= x
+st.upper_bound(x);                         // Iterator to first > x
+
+// <unordered_set> - Unordered Set
+unordered_set<int> ust;                    // Declare unordered set
+ust.insert(1);                             // Insert
+ust.erase(1);                              // Remove
+ust.count(1);                              // Exists?
+ust.find(1);                               // Iterator to 1
+ust.size();                                // Number of elements
+ust.empty();                               // True if empty
+ust.clear();                               // Remove all
+
+// <map> and <unordered_map> - See previous cheat sheets
+
+// <queue>, <stack>, <deque>, <priority_queue> - See previous cheat sheets
+
+// <chrono> - Timing
+auto start = chrono::high_resolution_clock::now(); // Start timer
+auto end = chrono::high_resolution_clock::now();   // End timer
+chrono::duration<double> diff = end - start;       // Time difference
+cout << diff.count() << " s\n";                    // Print seconds
+
+// <random> - Random Numbers
+mt19937 rng(time(0));                              // Random generator
+uniform_int_distribution<int> dist(1, 100);        // Range [1,100]
+int x = dist(rng);                                 // Get random int
+
+// <functional> - Lambda Functions
+auto cmp = [](int a, int b){ return a > b; };      // Comparator
+sort(v.begin(), v.end(), cmp);                     // Custom sort
+
+// <limits> - Limits
+int inf = numeric_limits<int>::max();              // Maximum int
+
+
+						Python
+
+# Built-in Functions
+len(arr)                # Length of arr
+max(arr)                # Maximum value
+min(arr)                # Minimum value
+sum(arr)                # Sum of elements
+sorted(arr)             # Sorted list (ascending)
+sorted(arr, reverse=True) # Sorted list (descending)
+reversed(arr)           # Reverse iterator
+enumerate(arr)          # Index and value pairs
+zip(a, b)               # Pair elements from a and b
+map(func, arr)          # Apply func to each element
+filter(func, arr)       # Filter elements by func
+list(arr)               # Convert to list
+set(arr)                # Convert to set
+dict(zip(keys, vals))   # Create dict from keys and vals
+abs(x)                  # Absolute value
+pow(a, b)               # a to the power b
+round(x)                # Round to nearest integer
+all(arr)                # True if all elements are True
+any(arr)                # True if any element is True
+input()                 # Read input as string
+int(s)                  # Convert string to int
+str(x)                  # Convert int to string
+
+# List Methods
+arr.append(x)           # Add x at end
+arr.pop()               # Remove last element
+arr.pop(i)              # Remove element at index i
+arr.insert(i, x)        # Insert x at index i
+arr.remove(x)           # Remove first occurrence of x
+arr.count(x)            # Count occurrences of x
+arr.index(x)            # Index of first occurrence of x
+arr.sort()              # Sort in place (ascending)
+arr.sort(reverse=True)  # Sort in place (descending)
+arr.reverse()           # Reverse in place
+arr.clear()             # Remove all elements
+arr.copy()              # Shallow copy
+
+# String Methods
+s.lower()               # Lowercase
+s.upper()               # Uppercase
+s.strip()               # Remove leading/trailing spaces
+s.lstrip(), s.rstrip()  # Remove left/right spaces
+s.replace('a', 'b')     # Replace 'a' with 'b'
+s.find('x')             # Index of first 'x'
+s.count('x')            # Count occurrences of 'x'
+s.split()               # Split by whitespace
+s.split(',')            # Split by comma
+s.join(list)            # Join list into string
+s.startswith('a')       # Starts with 'a'?
+s.endswith('b')         # Ends with 'b'?
+s.isdigit()             # Is all digits?
+s.isalpha()             # Is all letters?
+
+# Set Methods
+st.add(x)               # Add x
+st.remove(x)            # Remove x (error if not found)
+st.discard(x)           # Remove x (no error)
+st.pop()                # Remove and return an element
+st.clear()              # Remove all elements
+st.union(other)         # Union with other set
+st.intersection(other)  # Intersection with other set
+st.difference(other)    # Difference with other set
+
+# Dict Methods
+d.get(k, default)       # Get value for k, default if not found
+d.keys()                # All keys
+d.values()              # All values
+d.items()               # All key-value pairs
+d.pop(k)                # Remove key k
+d.popitem()             # Remove and return last key-value pair
+d.update(other)         # Update with other dict
+d.clear()               # Remove all items
+
+# Collections
+from collections import deque, Counter, defaultdict
+dq = deque([1,2,3])     # Double-ended queue
+dq.append(4)            # Add at end
+dq.appendleft(0)        # Add at front
+dq.pop()                # Remove last
+dq.popleft()            # Remove first
+
+cnt = Counter(arr)      # Count elements
+cnt.most_common(1)      # Most common element
+
+dd = defaultdict(int)   # Default value for missing keys
+
+# Heap
+import heapq
+heapq.heapify(arr)      # Convert list to heap
+heapq.heappush(arr, x)  # Push x onto heap
+heapq.heappop(arr)      # Pop smallest element
+heapq.nlargest(k, arr)  # k largest elements
+heapq.nsmallest(k, arr) # k smallest elements
+
+# Math
+import math
+math.gcd(a, b)          # Greatest common divisor
+math.lcm(a, b)          # Least common multiple (Python 3.9+)
+math.sqrt(x)            # Square root
+math.ceil(x)            # Ceiling
+math.floor(x)           # Floor
+math.log(x)             # Natural log
+math.log2(x)            # Base-2 log
+math.log10(x)           # Base-10 log
+math.factorial(n)       # Factorial
+
+# Random
+import random
+random.randint(a, b)    # Random int in [a, b]
+random.shuffle(arr)     # Shuffle list in place
+random.choice(arr)      # Random element from arr
+
+# Itertools
+from itertools import permutations, combinations, product, groupby
+list(permutations(arr))         # All permutations
+list(combinations(arr, r))      # All r-length combinations
+list(product(a, b))             # Cartesian product
+groupby(arr)                    # Group consecutive elements
+
+# Time
+import time
+start = time.time()             # Start timer
+end = time.time()               # End timer
+print(end - start)              # Print elapsed time
+
+# Bisect (Binary Search)
+import bisect
+bisect.bisect_left(arr, x)      # Leftmost insertion point for x
+bisect.bisect_right(arr, x)     # Rightmost insertion point for x
+bisect.insort(arr, x)           # Insert x in sorted order
+
+# Others
+assert condition                # Assert condition is True
+sys.setrecursionlimit(10**6)    # Increase recursion limit
