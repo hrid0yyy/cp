@@ -42,8 +42,11 @@ if [[ -n $(git status --porcelain) ]]; then
     # Prepare prompt for Groq API
     PROMPT="Analyze the following git diff and generate a concise, professional commit message (max 50 words) summarizing the changes:\n\n$DIFF"
     
+    # Escape newlines and quotes for JSON
+    ESCAPED_PROMPT=$(echo -n "$PROMPT" | sed ':a;N;$!ba;s/\n/\\n/g' | sed 's/"/\\"/g')
+    
     # Call Groq API to generate commit message
-    RESPONSE=$(curl -s -w "%{http_code}" -X POST https://api.groq.com/openai/v1/chat/completions \
+    RESPONSE=$(curl -s -w "\n%{http_code}" -X POST https://api.groq.com/openai/v1/chat/completions \
         -H "Authorization: Bearer $GROQ_API_KEY" \
         -H "Content-Type: application/json" \
         -d '{
@@ -51,7 +54,7 @@ if [[ -n $(git status --porcelain) ]]; then
             "messages": [
                 {
                     "role": "user",
-                    "content": "'"${PROMPT}"'"
+                    "content": "'"$ESCAPED_PROMPT"'"
                 }
             ],
             "max_tokens": 100,
