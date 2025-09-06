@@ -30,7 +30,7 @@ void dout(T t, Args... args) {
     dout(args...);
 }
 
-mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+mt19937 rng(steady_clock::now().time_since_epoch().count());
 ll getRand(ll l, ll r) {
     return uniform_int_distribution<ll>(l, r)(rng);
 }
